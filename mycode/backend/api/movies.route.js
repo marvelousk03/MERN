@@ -5,7 +5,7 @@ import ReviewsController from './reviews.controller.js'
 // get access to express router
 const router = express.Router() 
 
-router.route('/').get((req,res) => res.send('hello world'))
+// router.route('/').get((req,res) => res.send('hello world'))
 //gets full movie object
 router.route('/').get(MoviesController.apiGetMovies)
 
