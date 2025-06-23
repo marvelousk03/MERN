@@ -14,6 +14,7 @@ router.route('/').get(MoviesController.apiGetMovies)
 //route gets specific movies and their ratings
 router.route("/id/:id").get(MoviesController.apiGetMovieById)
 router.route("/ratings").get(MoviesController.apiGetRatings)
+router.route("/movies").post(MoviesController.apiPostMovies)
 
 //CRUD functioning for reviews
 router

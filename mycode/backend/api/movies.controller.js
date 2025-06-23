@@ -64,7 +64,7 @@ export default class MoviesController {
     }
 
 
-    static async apiPostMovie(req, res, next) {
+    static async apiPostMovies(req, res, next) {
 
         try {
             const { title, plot, rated, runtime, year } = req.body
