@@ -64,21 +64,18 @@ export default class MoviesController {
     }
 
 
-    static async apiPostMovies(req, res, next) {
-
+    static async apiPostMovie(req, res, next) {
+        console.log("apiPostMovie called", req.body);
         try {
-            const { title, plot, rated, runtime, year } = req.body
-            const movieResponse = await MoviesDAO.addMovie({
-                title,
-                plot,
-                rated,
-                runtime,
-                year,
-            })
-
-            res.json({ status: "success", movie: movieResponse })
+            const movieData = req.body;
+            const insertResult = await MoviesDAO.addMovie(movieData);
+            if (insertResult.insertedId) {
+                res.status(201).json({ status: "success", insertedId: insertResult.insertedId });
+            } else {
+                res.status(500).json({ error: "Failed to insert movie" });
+            }
         } catch (e) {
-            res.status(500).json({ error: e.message })
+            res.status(500).json({ error: e.message });
         }
     }
 
