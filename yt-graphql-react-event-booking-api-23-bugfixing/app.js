@@ -34,13 +34,17 @@ app.use(
 
 mongoose
   .connect(
-    `mongodb+srv://${process.env.MONGO_USER}:${
-      process.env.MONGO_PASSWORD
-    }@cluster0-ntrwp.mongodb.net/${process.env.MONGO_DB}?retryWrites=true`
+    `mongodb+srv://${process.env.MONGO_USER}:${process.env.MONGO_PASSWORD}@cluster1.5viagc5.mongodb.net/${process.env.MONGO_DB}?retryWrites=true&w=majority`,
+    {
+      useNewUrlParser: true,
+      useUnifiedTopology: true,
+    }
   )
   .then(() => {
-    app.listen(8000);
+    app.listen(8000, () => {
+      console.log("Server is running on port 8000");
+    });
   })
   .catch(err => {
-    console.log(err);
+    console.error("MongoDB connection error:", err);
   });
