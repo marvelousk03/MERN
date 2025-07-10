@@ -16,4 +16,4 @@ module.exports.userVerification = (req, res) => {
       else return res.json({ status: false })
     }
   })
-}
+};
