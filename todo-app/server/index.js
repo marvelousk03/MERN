@@ -10,7 +10,10 @@ const resolvers = require('./graphql/resolvers');
 const app = express();
 const PORT = process.env.PORT || 4000;
 
-app.use(cors({ origin: 'http://localhost:3000', credentials: true }));
+app.use(cors({
+  origin: ['http://localhost:3000', 'https://studio.apollographql.com'],
+  credentials: true,
+}));
 app.use(cookieParser());
 
 async function startServer() {
