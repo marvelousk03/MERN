@@ -19,10 +19,11 @@ module.exports = gql`
   }
 
   type Mutation {
-    signup(username: String!, email: String!, password: String!): String
-    login(email: String!, password: String!): String
-    addTodo(title: String!): Todo
-    toggleTodo(id: ID!): Todo
-    deleteTodo(id: ID!): String
-  }
+  signup(username: String!, email: String!, password: String!): String
+  login(email: String!, password: String!): String
+  addTodo(title: String!): Todo
+  toggleTodo(id: ID!): Todo
+  deleteTodo(id: ID!): String
+  editTodo(id: ID!, title: String!): Todo
+}
 `;

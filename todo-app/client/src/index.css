@@ -1,3 +1,4 @@
+/* Reset and base styles */
 * {
   box-sizing: border-box;
   margin: 0;
@@ -5,61 +6,79 @@
 }
 
 body {
-  font-family: sans-serif;
-  background: #f4f4f4;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(to right, #83a4d4, #b6fbff);
   min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
 }
 
+/* Page layout */
 .page {
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 2rem;
+  width: 100%;
 }
 
+/* Form container */
 .form-container {
   background: white;
-  padding: 2rem;
-  border-radius: 8px;
+  padding: 2.5rem;
+  border-radius: 16px;
   width: 100%;
-  max-width: 400px;
-  box-shadow: 0 1px 4px rgba(0,0,0,0.1);
+  max-width: 420px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+  animation: fadeIn 0.5s ease-in-out;
 }
 
 .form-container h2 {
-  margin-bottom: 1rem;
-  color: #333;
+  margin-bottom: 1.5rem;
+  color: #222;
+  text-align: center;
 }
 
 .form-container label {
   margin-top: 1rem;
   display: block;
-  color: #555;
+  color: #444;
+  font-weight: bold;
 }
 
 .form-container input {
   width: 100%;
-  padding: 0.5rem;
-  margin-top: 0.2rem;
+  padding: 0.6rem;
+  margin-top: 0.4rem;
   border: 1px solid #ccc;
-  border-radius: 4px;
+  border-radius: 8px;
+  transition: border-color 0.3s;
+}
+
+.form-container input:focus {
+  border-color: #007bfc;
+  outline: none;
 }
 
 .form-container button {
-  margin-top: 1.5rem;
+  margin-top: 2rem;
   width: 100%;
-  padding: 0.7rem;
+  padding: 0.8rem;
   background: #007bfc;
   color: white;
   border: none;
-  border-radius: 4px;
+  border-radius: 8px;
   cursor: pointer;
+  font-weight: bold;
+  transition: background 0.3s;
 }
 
 .form-container button:hover {
   background: #005bb5;
 }
 
+/* Signup/Login link */
 .link {
   margin-top: 1rem;
   text-align: center;
@@ -68,54 +87,65 @@ body {
 .link a {
   color: #007bfc;
   text-decoration: none;
+  font-weight: bold;
 }
 
 .link a:hover {
   text-decoration: underline;
 }
 
+/* Todo container */
 .todo-container {
   background: white;
-  padding: 1rem;
+  padding: 2rem;
   width: 100%;
   max-width: 600px;
-  border-radius: 8px;
-  box-shadow: 0 1px 4px rgba(0,0,0,0.1);
+  border-radius: 16px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+  animation: fadeIn 0.5s ease-in-out;
 }
 
 .todo-container h2 {
   margin-bottom: 1rem;
-  color: #333;
+  color: #222;
+  text-align: center;
 }
 
+/* Add todo */
 .add-todo {
   display: flex;
   gap: 0.5rem;
+  margin-bottom: 1rem;
 }
 
 .add-todo input {
   flex: 1;
-  padding: 0.5rem;
+  padding: 0.6rem;
   border: 1px solid #bbb;
-  border-radius: 4px;
+  border-radius: 8px;
 }
 
 .add-todo button {
-  padding: 0.5rem 1rem;
+  padding: 0.6rem 1rem;
   background: #28a745;
   color: white;
   border: none;
-  border-radius: 4px;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.3s;
 }
 
 .add-todo button:hover {
   background: #1e7e34;
 }
 
+/* Todo list */
 .todo-list {
   margin-top: 1rem;
 }
 
+/* Each todo item */
 .todo-item {
   padding: 0.7rem;
   border-bottom: 1px solid #eee;
@@ -124,27 +154,62 @@ body {
   align-items: center;
 }
 
+/* Completed task */
 .todo-item.completed span {
   text-decoration: line-through;
-  color: #999;
+  color: #aaa;
+}
+
+/* Task title click (toggle) */
+.todo-item span {
+  cursor: pointer;
+  flex: 1;
+}
+
+/* Edit/Delete buttons */
+.todo-actions {
+  display: flex;
+  gap: 0.5rem;
 }
 
 .todo-item button {
-  background: transparent;
+  background: none;
   border: none;
+  font-weight: bold;
   cursor: pointer;
-  color: #dc3545;
+  padding: 0.3rem 0.5rem;
+  color: #333;
 }
 
+.todo-item button:hover {
+  text-decoration: underline;
+}
+
+/* Logout button */
 .logout-btn {
-  margin-top: 1rem;
-  padding: 0.5rem 1rem;
-  background: #ffc107;
+  margin-top: 1.5rem;
+  padding: 0.7rem 1.5rem;
+  background: #f44336;
   color: white;
   border: none;
-  border-radius: 4px;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.3s;
 }
 
 .logout-btn:hover {
-  background: #e0a800;
+  background: #c62828;
+}
+
+/* Animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
