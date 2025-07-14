@@ -24,6 +24,5 @@ module.exports = gql`
   addTodo(title: String!): Todo
   toggleTodo(id: ID!): Todo
   deleteTodo(id: ID!): String
-  editTodo(id: ID!, title: String!): Todo
 }
 `;

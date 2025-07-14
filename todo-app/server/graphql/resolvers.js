@@ -63,15 +63,5 @@ module.exports = {
       await Todo.deleteOne({ _id: id });
       return "Todo deleted";
     },
-
-    editTodo: async (_, { id, title }, { req }) => {
-      const { userId } = jwt.verify(req.cookies.token, process.env.JWT_SECRET);
-      const todo = await Todo.findOne({ _id: id, userId });
-      if (!todo) throw new Error("Not authorized");
-
-      todo.title = title;
-      await todo.save();
-      return todo;
-    },
   }
 };
